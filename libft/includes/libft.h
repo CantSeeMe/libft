@@ -6,7 +6,7 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:43:06 by jye               #+#    #+#             */
-/*   Updated: 2017/03/29 15:16:20 by root             ###   ########.fr       */
+/*   Updated: 2017/03/29 15:31:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,5 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putendl_fd(const char *s, int fd);
 void			ft_putnbr_fd(int z, int fd);
-long			get_next_line(const int fd, char **line);
 
 #endif
