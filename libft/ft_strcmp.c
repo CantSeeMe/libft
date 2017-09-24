@@ -6,7 +6,7 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:22:09 by jye               #+#    #+#             */
-/*   Updated: 2016/11/06 15:41:26 by jye              ###   ########.fr       */
+/*   Updated: 2017/09/24 10:32:27 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	while (*s1 && (*s1 == *s2))
-	{
-		++s1;
-		++s2;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (ft_memcmp(s1, s2, ft_strlen(s1) + 1));
 }

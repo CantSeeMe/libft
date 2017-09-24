@@ -6,12 +6,12 @@
 #    By: jye <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 19:36:45 by jye               #+#    #+#              #
-#    Updated: 2017/03/29 15:17:10 by root             ###   ########.fr        #
+#    Updated: 2017/09/24 08:19:44 by jye              ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC	=	gcc
-FLAG=	-Wall -Werror -Wextra
+FLAG=	-Wall -Werror -Wextra -g3
 SRC	=	ft_putchar.c \
 		ft_putstr.c \
 		ft_memset.c \

@@ -6,20 +6,17 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:22:09 by jye               #+#    #+#             */
-/*   Updated: 2016/11/08 20:00:38 by jye              ###   ########.fr       */
+/*   Updated: 2017/09/24 10:40:00 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (0);
-	while (--n && *s1 && (*s1 == *s2))
-	{
-		++s1;
-		++s2;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	size_t z;
+
+	z = ft_strlen(s1) + 1;
+	return (ft_memcmp(s1, s2, MIN(z, n)));
 }
