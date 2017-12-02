@@ -6,7 +6,7 @@
 /*   By: jye <jye@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 14:26:05 by jye               #+#    #+#             */
-/*   Updated: 2017/11/30 06:53:43 by root             ###   ########.fr       */
+/*   Updated: 2017/12/02 02:43:18 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 	srcp = (uint64_t)src;
 	if (n > 16)
 	{
-		xlen = dstp & 7;
+		xlen = -dstp & 7;
 		ft_byte_copy_fwd(dstp, srcp, xlen);
 		dstp += xlen;
 		srcp += xlen;

@@ -6,7 +6,7 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 19:47:40 by jye               #+#    #+#             */
-/*   Updated: 2017/11/30 16:34:14 by root             ###   ########.fr       */
+/*   Updated: 2017/12/02 02:43:11 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static inline void	ft_memset64(uint64_t dstp, int c, size_t m8)
 	m8 &= 3;
 	while (m8--)
 	{
-		((uint64_t *)dstp)[8] = mask_set;
+		((uint64_t *)dstp)[0] = mask_set;
 		dstp += 8;
 	}
 }
@@ -57,7 +57,7 @@ void				*ft_memset(void *mem, int c, size_t mlen)
 	c &= 0xff;
 	if (mlen >= 16)
 	{
-		xlen = dstp & 7;
+		xlen = -dstp & 7;
 		ft_memset8(dstp, c, xlen);
 		mlen -= xlen;
 		dstp += xlen;

@@ -6,14 +6,14 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 00:00:00 by jye               #+#    #+#             */
-/*   Updated: 2017/11/30 08:35:06 by root             ###   ########.fr       */
+/*   Updated: 2017/12/02 02:26:03 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdint.h>
 
-static char	*maybe(unsigned long *long_ptr)
+static char	*maybe(uint64_t *long_ptr)
 {
 	char *cp;
 

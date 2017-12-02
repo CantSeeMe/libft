@@ -6,7 +6,7 @@
 /*   By: jye <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 16:57:12 by jye               #+#    #+#             */
-/*   Updated: 2017/11/30 16:30:30 by root             ###   ########.fr       */
+/*   Updated: 2017/12/02 03:04:28 by jye              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void			*ft_memchr64(uint64_t dstp, int c, size_t n)
 {
 	register size_t		xlen;
 	register uint64_t	mask_set;
-	register uint64_t	longword;
 	register uint64_t	lo_magic;
 	register uint64_t	hi_magic;
+	uint64_t			dstpp;
 
 	lo_magic = QWORD_LBITS;
 	hi_magic = QWORD_HBITS;
@@ -43,9 +43,9 @@ static void			*ft_memchr64(uint64_t dstp, int c, size_t n)
 	xlen = n >> 3;
 	while (xlen--)
 	{
-		longword = ((uint64_t *)dstp)[0];
-		if ((((longword ^ mask_set) - lo_magic) & hi_magic))
-			return (ft_memchr8(dstp, c, 8));
+		if ((((((uint64_t *)dstp)[0] ^ mask_set) - lo_magic) & hi_magic))
+			if ((dstpp = (uint64_t)ft_memchr8(dstp, c, 8)))
+				return ((void *)dstpp);
 		dstp += 8;
 	}
 	return (ft_memchr8(dstp, c, n & 7));
@@ -61,7 +61,7 @@ void				*ft_memchr(const void *mem, int c, size_t n)
 	c &= 0xff;
 	if (n >= 16)
 	{
-		xlen = dstp & 7;
+		xlen = -dstp & 7;
 		if ((ret = ft_memchr8(dstp, c, xlen)))
 			return (ret);
 		dstp += xlen;
