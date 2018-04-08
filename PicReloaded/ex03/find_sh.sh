@@ -1,1 +1,0 @@
-find . -name '*.sh' -exec basename \{} .sh \; |sed -e 's/\.sh//g'

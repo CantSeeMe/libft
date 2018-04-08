@@ -1,9 +1,19 @@
-# libft
+LIBFT
 
-The basic function of libc + some extra custom function.
+The goal of this project was to have a basic understanding of the libc function. This repo has 2 folder, one optimized (folder lib) and the original from 42
 
-extra included on the git
+MAKEFILE
 
-libc highly optimised (folder lib)
+Each folder has its own makefile, and has been provided with the rules: all re clean fclean
 
-piscine reloaded (folder Picreloaded)
+NOTE
+
+Their behavior shall be the same from the man section 3 equivalent.
+
+LINK
+
+To link the library after make, copy the libft.a and link it with the following flag "-lft" on gcc 
+
+OPTIMIZED LIB
+
+The following function has been optimized: ft_memchr ft_memcmp ft_memcpy ft_memmove ft_memset ft_strchr ft_strlen
