@@ -12,7 +12,7 @@ Their behavior shall be the same from the man section 3 equivalent.
 
 LINK
 
-To link the library after make, copy the libft.a and link it with the following flag "-lft" on gcc 
+To link the library, provide the following flag "-lft" on gcc 
 
 OPTIMIZED LIB
 
