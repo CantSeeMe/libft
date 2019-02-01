@@ -6,12 +6,12 @@
 #    By: jye <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 19:36:45 by jye               #+#    #+#              #
-#    Updated: 2017/12/02 02:49:17 by jye              ###   ########.fr        #
+#    Updated: 2019/02/01 21:42:22 by jye              ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -g3
+CFLAGS	=	-Wall -Werror -Wextra
 INC		=	includes
 SRC		=	ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 			ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
