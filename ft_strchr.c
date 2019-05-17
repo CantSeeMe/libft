@@ -11,25 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
-static unsigned long	init__(unsigned long **magic, void *cp, unsigned char c)
+static uint64_t	init__(uint64_t **magic, void *cp, uint8_t c)
 {
-	unsigned long mask;
+	uint64_t mask;
 
 	mask = c;
 	mask = (mask << 8) | mask;
 	mask = (mask << 16) | mask;
 	mask = ((mask << 16) << 16) | mask;
-	*magic = (unsigned long *)cp;
+	*magic = (uint64_t *)cp;
 	return (mask);
 }
 
-static unsigned char	*test__(unsigned long *long_ptr, unsigned char c)
+static uint8_t	*test__(uint64_t *long_ptr, uint8_t c)
 {
-	unsigned char	*str;
-	unsigned int	i;
+	uint8_t		*str;
+	uint32_t	i;
 
-	str = (unsigned char *)long_ptr;
+	str = (uint8_t *)long_ptr;
 	i = 0;
 	while (i < 8)
 	{
@@ -40,18 +41,18 @@ static unsigned char	*test__(unsigned long *long_ptr, unsigned char c)
 		++str;
 		++i;
 	}
-	return ((unsigned char *)1);
+	return ((uint8_t *)1);
 }
 
-char					*ft_strchr(const char *str, unsigned char c)
+char			*ft_strchr(const char *str, uint8_t c)
 {
-	unsigned long	mask;
-	unsigned long	*long_ptr;
-	unsigned long	val;
-	unsigned char	*cp;
+	uint64_t	mask;
+	uint64_t	*long_ptr;
+	uint64_t	val;
+	uint8_t		*cp;
 
-	cp = (unsigned char *)str;
-	while ((sizeof(unsigned long) - 1) & (unsigned long)cp)
+	cp = (uint8_t *)str;
+	while ((sizeof(uint64_t) - 1) & (uint64_t)cp)
 	{
 		if (*cp == c || *cp == 0)
 			return (*cp == c ? (char *)cp : NULL);
@@ -63,7 +64,7 @@ char					*ft_strchr(const char *str, unsigned char c)
 		val = *long_ptr;
 		if (((val - QWORD_LBITS) & QWORD_HBITS) ||
 			(((val ^ mask) - QWORD_LBITS) & QWORD_HBITS))
-			if ((long)(cp = test__(long_ptr, c)) != 1L)
+			if ((cp = test__(long_ptr, c)) != (uint8_t *)1)
 				return ((char *)cp);
 		++long_ptr;
 	}
