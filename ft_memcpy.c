@@ -95,8 +95,8 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 			ft_word_copy_dest_aligned(dstp, srcp, xlen);
 		else
 			ft_word_copy_aligned(dstp, srcp, xlen);
-		dstp += xlen * 8;
-		srcp += xlen * 8;
+		dstp += (xlen << 3);
+		srcp += (xlen << 3);
 		n &= 7;
 	}
 	ft_byte_copy_fwd(dstp, srcp, n);
