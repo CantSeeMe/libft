@@ -13,11 +13,11 @@
 #include "libft.h"
 #include <stdint.h>
 
-static uint64_t	init__(uint64_t **magic, void *cp, uint8_t c)
+static uint64_t	init__(uint64_t **magic, void *cp, int c)
 {
 	uint64_t mask;
 
-	mask = c;
+	mask = c & 0xff;
 	mask = (mask << 8) | mask;
 	mask = (mask << 16) | mask;
 	mask = ((mask << 16) << 16) | mask;
@@ -44,7 +44,7 @@ static uint8_t	*test__(uint64_t *long_ptr, uint8_t c)
 	return ((uint8_t *)1);
 }
 
-char			*ft_strchr(const char *str, uint8_t c)
+char			*ft_strchr(const char *str, int c)
 {
 	uint64_t	mask;
 	uint64_t	*long_ptr;
