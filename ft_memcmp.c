@@ -108,8 +108,8 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n)
 			ft_aligned_word_cmp(s1p, s2p, xlen);
 		if (diff)
 			return (diff);
-		s1p += xlen * 8;
-		s2p += xlen * 8;
+		s1p += (xlen << 3);
+		s2p += (xlen << 3);
 		n &= 7;
 	}
 	return (ft_memcmp8(s1p, s2p, n));
