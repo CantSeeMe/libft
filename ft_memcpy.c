@@ -83,7 +83,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 
 	dstp = (uint64_t)dst;
 	srcp = (uint64_t)src;
-	if (n > 16)
+	if (n >= 16)
 	{
 		xlen = -dstp & 7;
 		ft_byte_copy_fwd(dstp, srcp, xlen);
