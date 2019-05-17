@@ -63,7 +63,7 @@ void				*ft_memset(void *mem, int c, size_t mlen)
 		dstp += xlen;
 		xlen = mlen >> 3;
 		ft_memset64(dstp, c, xlen);
-		dstp += xlen * 8;
+		dstp += (xlen << 3);
 		mlen &= 7;
 	}
 	ft_memset8(dstp, c, mlen);
