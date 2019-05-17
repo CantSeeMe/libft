@@ -83,7 +83,7 @@ static void	ft_memcpy_bwd(uint64_t dstp, uint64_t srcp, size_t n)
 
 	dstp += n;
 	srcp += n;
-	if (n > 16)
+	if (n >= 16)
 	{
 		xlen = dstp & 7;
 		ft_byte_copy_bwd(dstp, srcp, xlen);
@@ -95,8 +95,8 @@ static void	ft_memcpy_bwd(uint64_t dstp, uint64_t srcp, size_t n)
 			ft_word_copy_dest_aligned(dstp, srcp, xlen);
 		else
 			ft_word_copy_aligned(dstp, srcp, xlen);
-		dstp -= xlen * 8;
-		srcp -= xlen * 8;
+		dstp -= (xlen << 3);
+		srcp -= (xlen << 3);
 		n &= 7;
 	}
 	ft_byte_copy_bwd(dstp, srcp, n);
