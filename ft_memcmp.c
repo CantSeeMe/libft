@@ -42,7 +42,7 @@ static int	ft_unaligned_word_cmp(uint64_t s1p, uint64_t s2p, size_t m8)
 	while (xlen--)
 	{
 		w[1] = ((uint64_t *)s2p)[1];
-		if (!((MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0]))
+		if (!((val = MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0]))
 			return (ft_memcmp8(s1p, (uint64_t)&val, 8));
 		s2p += 16;
 		w[0] = ((uint64_t *)s2p)[0];
