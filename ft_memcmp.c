@@ -42,17 +42,17 @@ static int	ft_unaligned_word_cmp(uint64_t s1p, uint64_t s2p, size_t m8)
 	while (xlen--)
 	{
 		w[1] = ((uint64_t *)s2p)[1];
-		if (!((val = MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0]))
+		if ((val = MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0])
 			return (ft_memcmp8(s1p, (uint64_t)&val, 8));
 		s2p += 16;
 		w[0] = ((uint64_t *)s2p)[0];
-		if (!((val = MERGE(w[1], sh[0], w[0], sh[1])) ^ ((uint64_t *)s1p)[1]))
+		if ((val = MERGE(w[1], sh[0], w[0], sh[1])) ^ ((uint64_t *)s1p)[1])
 			return (ft_memcmp8(s1p + 8, (uint64_t)&val, 8));
 		s1p += 16;
 	}
 	w[1] = ((uint64_t *)s2p)[1];
 	if (m8 & 1)
-		if (!((val = MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0]))
+		if ((val = MERGE(w[0], sh[0], w[1], sh[1])) ^ ((uint64_t *)s1p)[0])
 			return (ft_memcmp8(s1p, (uint64_t)&val, 8));
 	return (0);
 }
@@ -64,13 +64,13 @@ static int	ft_aligned_word_cmp(uint64_t s1p, uint64_t s2p, size_t m8)
 	xlen = m8 >> 3;
 	while (xlen--)
 	{
-		if (!(((uint64_t *)s2p)[0] ^ ((uint64_t *)s1p)[0]))
+		if (((uint64_t *)s2p)[0] ^ ((uint64_t *)s1p)[0])
 			return (ft_memcmp8(s1p, s2p, 8));
-		if (!(((uint64_t *)s2p)[1] ^ ((uint64_t *)s1p)[1]))
+		if (((uint64_t *)s2p)[1] ^ ((uint64_t *)s1p)[1])
 			return (ft_memcmp8(s1p + 8, s2p + 8, 8));
-		if (!(((uint64_t *)s2p)[2] ^ ((uint64_t *)s1p)[2]))
+		if (((uint64_t *)s2p)[2] ^ ((uint64_t *)s1p)[2])
 			return (ft_memcmp8(s1p + 16, s2p + 16, 8));
-		if (!(((uint64_t *)s2p)[3] ^ ((uint64_t *)s1p)[3]))
+		if (((uint64_t *)s2p)[3] ^ ((uint64_t *)s1p)[3])
 			return (ft_memcmp8(s1p + 24, s2p + 24, 8));
 		s1p += 32;
 		s2p += 32;
@@ -78,7 +78,7 @@ static int	ft_aligned_word_cmp(uint64_t s1p, uint64_t s2p, size_t m8)
 	m8 &= 3;
 	while (m8--)
 	{
-		if (!(((uint64_t *)s2p)[0] ^ ((uint64_t *)s1p)[0]))
+		if (((uint64_t *)s2p)[0] ^ ((uint64_t *)s1p)[0])
 			return (ft_memcmp8(s1p, s2p, 8));
 		s1p += 8;
 		s2p += 8;
