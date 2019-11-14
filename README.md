@@ -1,15 +1,15 @@
-#LIBFT
+# LIBFT
 
 The goal of this project was to have a basic understanding of the libc function. This repo has 2 folder, one optimized (folder lib) and the original from 42
 
-##MAKEFILE
+## MAKEFILE
 
 Each folder has its own makefile, and has been provided with the rules: all re clean fclean
 
-##NOTE
+## NOTE
 
 Their behavior shall be the same from the man section 3 equivalent.
 
-##LINK
+## LINK
 
 To link the library, provide the following flag "-lft" on gcc 
